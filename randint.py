@@ -4,7 +4,7 @@ random_integer = randint(1, 20)
 answer = 0
 chance = 0
 
-print (random_integer)
+
 while (chance <= 4):
     if (chance == 4):
         print("아쉽습니다. 정답은 %d 입니다." % (random_integer))
@@ -22,5 +22,7 @@ while (chance <= 4):
     elif (answer < random_integer):
         print ("Up")
     chance = chance + 1
+
+
 
 
