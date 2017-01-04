@@ -19,7 +19,7 @@ while (chance <= 4):
     elif (answer > random_integer):
         print ("Down")
 
-    elif (answer < random_integer):
+    else:
         print ("Up")
     chance = chance + 1
 
