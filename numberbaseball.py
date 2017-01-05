@@ -47,28 +47,94 @@ def usersball():
 
     return usernumbers
 
+def ballcheck(a, b):
+
+    user_ball_array = []
+    com_ball_array = []
+
+    com_ball_array = a
+    user_ball_array = b
+    k = 0
+    ball_count = 0
+
+    while( k < len(a)):
+        if ((user_ball_array[k] in com_ball_array) and not user_ball_array[k] == com_ball_array[k]):
+            ball_count += 1
+
+        k += 1
+
+    return ball_count
+
+
+def strikecheck(c, d):
+    user_ball_array = []
+    com_ball_array = []
+
+    com_ball_array = c
+    user_ball_array = d
+
+    t = 0
+    strike_count = 0
+
+    while (t < len(c)):
+        if (d[t] == c[t]):
+            strike_count += 1
+
+        t += 1
+    return strike_count
+
 guesses = []
 numbers = []
 
 numbers = computersball()
+print(str(numbers))
 guesses = usersball()
 
-print(str(numbers))
+
 print(str(guesses))
 
-def umpire():
-    i = 0
-    strike = 0
-    ball = 0
 
-    while (i < len(guesses)):
+i = 0
+strike = 0
+ball = 0
+chance = 4
+tries = 0
 
-        if guesses[i] == numbers[i]:
-            strike += 1
-        elif guesses in numbers:
-            ball += 1
-    print(strike)
-    print(ball)
+strike = strikecheck(numbers, guesses)
+ball = ballcheck(numbers, guesses)
+
+
+
+while (tries + 1 < chance):
+    if (strike == 3):
+        print("정답!")
+        break
+    else:
+        print("%dS %dB." % (strike, ball))
+        guesses = usersball()
+        strike = strikecheck(numbers, guesses)
+        ball = ballcheck(numbers, guesses)
+    tries += 1
+
+
+if (tries == chance - 1) : print ("아쉽습니다. 기회 초과")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
