@@ -45,6 +45,9 @@ def usersball():
             new_number = int(input("다른 숫자를 입력하시오."))
         usernumbers.append(new_number)
 
+        #범위에 맞는 숫자 입력받기
+
+
     return usernumbers
 
 def ballcheck(a, b):
@@ -106,14 +109,16 @@ ball = ballcheck(numbers, guesses)
 
 
 while (tries + 1 < chance):
-    if (strike == 3):
-        print("정답!")
-        break
-    else:
+    if (strike != 3):
         print("%dS %dB." % (strike, ball))
         guesses = usersball()
         strike = strikecheck(numbers, guesses)
         ball = ballcheck(numbers, guesses)
+
+
+    else:
+        print("정답! %d번째 기회에서 정답을 맞춤." % (tries + 1))
+        break
     tries += 1
 
 
