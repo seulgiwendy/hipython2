@@ -30,6 +30,7 @@ def computersball():
         computernumbers.append(new_number)
 
     print("0~9 사이의 랜덤한 숫자를 뽑았습니다.")
+    print(str(computernumbers))
     return computernumbers
 
 
@@ -47,7 +48,7 @@ def usersball():
             new_number = int(input("다른 숫자를 입력하시오."))
         usernumbers.append(new_number)
         while usernumbers [i] > 9:
-            usernumbers [i] = int(input("범위에 맞는 숫자를 입력하시오."))
+            usernumbers [i] = int(input("범위에 맞는 숫자를 입력하세요. (0~9)"))
             if usernumbers [i] < 10:
                 break
 
@@ -96,11 +97,8 @@ guesses = []
 numbers = []
 
 numbers = computersball()
-print(str(numbers))
 guesses = usersball()
 
-
-print(str(guesses))
 
 
 i = 0
@@ -114,7 +112,7 @@ ball = ballcheck(numbers, guesses)
 
 
 
-while (tries + 1 < chance):
+while (True):
     if (strike != 3):
         print("%dS %dB." % (strike, ball))
         guesses = usersball()
@@ -128,11 +126,6 @@ while (tries + 1 < chance):
     tries += 1
 
 
-if (tries == chance - 1) :
-    if (strike == 3):
-        print ("축하합니다! %d번만에 세 숫자의 값과 위치를 모두 맞추셨습니다." % (tries + 1))
-    else:
-        print("기회 초과")
 
 
 
