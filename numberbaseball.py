@@ -29,16 +29,18 @@ def computersball():
             new_number = randint(0, 9)
         computernumbers.append(new_number)
 
-
+    print("0~9 사이의 랜덤한 숫자를 뽑았습니다.")
     return computernumbers
 
 
 def usersball():
     usernumbers = []
     i = 0
+    print("세 수를 하나씩 차례로 입력하세요.")
     while len(usernumbers) < 3:
+
         new_number = int(input("%d번째 숫자를 입력하시오." % (i + 1)))
-        i = i + 1
+
 
         # 새로운 수 나올때까지 다시 뽑기
         while new_number in usernumbers:
@@ -47,6 +49,7 @@ def usersball():
 
         #범위에 맞는 숫자 입력받기
 
+        i = i + 1
 
     return usernumbers
 
@@ -117,13 +120,16 @@ while (tries + 1 < chance):
 
 
     else:
-        print("정답! %d번째 기회에서 정답을 맞춤." % (tries + 1))
+        print("축하합니다! %d번만에 세 숫자의 값과 위치를 모두 맞추셨습니다." % (tries + 1))
         break
     tries += 1
 
 
-if (tries == chance - 1) : print ("아쉽습니다. 기회 초과")
-
+if (tries == chance - 1) :
+    if (strike == 3):
+        print ("축하합니다! %d번만에 세 숫자의 값과 위치를 모두 맞추셨습니다." % (tries + 1))
+    else:
+        print("기회 초과")
 
 
 
