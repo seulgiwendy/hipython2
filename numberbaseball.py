@@ -46,9 +46,12 @@ def usersball():
         while new_number in usernumbers:
             new_number = int(input("다른 숫자를 입력하시오."))
         usernumbers.append(new_number)
+        while usernumbers [i] > 9:
+            usernumbers [i] = int(input("범위에 맞는 숫자를 입력하시오."))
+            if usernumbers [i] < 10:
+                break
 
         #범위에 맞는 숫자 입력받기
-
         i = i + 1
 
     return usernumbers
