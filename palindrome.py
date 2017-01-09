@@ -9,7 +9,5 @@ def is_palindrome(word):
         else: result = False
     return result
 
-print(is_palindrome('racecar'))
-print(is_palindrome('토마토'))
-print(is_palindrome("권수빈"))
-    # 코드를 입력하세요.
+word_input = input("검사하고자 하는 단어를 입력하세요:")
+print(is_palindrome(word_input))
