@@ -17,6 +17,8 @@ for line in in_file:
     else:
         print("틀렸습니다. 정답은 %s입니다." % (kor))
 
+in_file.close()
+
 
 
 
