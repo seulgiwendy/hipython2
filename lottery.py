@@ -25,8 +25,19 @@ def draw_winning_numbers(computernumbers):
     return number_row
 
 # 두 리스트에서 중복되는 숫자가 몇개인지 구하기
-#def count_matching_numbers(list1, list2):
-    # 코드를 입력하세요
+def count_matching_numbers(list1, list2):
+
+    i = 0
+    count = 0
+
+    while (i<len(list1)):
+        if list1[i] in list2:
+            count += 1
+        i += 1
+    return count
+
+
+
 
 # 로또 등수 확인하기
 #def check(numbers, winning_numbers):
@@ -37,3 +48,9 @@ print(randomnumber)
 test_list = []
 test_list = draw_winning_numbers(randomnumber)
 print(test_list)
+
+a = [14, 3, 4, 5]
+b = [5, 4, 3]
+
+test_checker = count_matching_numbers(a, b)
+print(test_checker)
