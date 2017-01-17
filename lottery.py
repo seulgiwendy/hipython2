@@ -6,7 +6,7 @@ def generate_numbers():
     computernumbers = []
     i = 0
     while len(computernumbers) < 6:
-        new_number = randint(0, 45)
+        new_number = randint(1, 45)
 
         # 새로운 수 나올때까지 다시 뽑기
         while new_number in computernumbers:
@@ -16,10 +16,12 @@ def generate_numbers():
     return computernumbers
 
 # 보너스까지 포함해 7개 숫자 뽑기
-def draw_winning_numbers(computernumbers):
+def draw_winning_numbers():
     number_row = []
-    input_row = computernumbers
+    input_row = generate_numbers()
     bonus_number = randint(1, 45)
+    while bonus_number in input_row:
+        bonus_number = randint(1, 45)
     input_row.append(bonus_number)
     number_row = input_row
     return number_row
@@ -30,8 +32,8 @@ def count_matching_numbers(list1, list2):
     i = 0
     count = 0
 
-    while (i<len(list1)):
-        if list1[i] in list2:
+    while (i<len(list2)-1):
+        if list2[i] in list1:
             count += 1
         i += 1
     return count
@@ -40,17 +42,31 @@ def count_matching_numbers(list1, list2):
 
 
 # 로또 등수 확인하기
-#def check(numbers, winning_numbers):
-    #코드를 입력하세요
+def check(numbers, winning_numbers):
+    prize_count = count_matching_numbers(numbers, winning_numbers)
+    bonus_digit = winning_numbers[6]
+    prize_money = 0
+    if prize_count == 6:
+        prize_money = 1000000000
 
-randomnumber = generate_numbers()
-print(randomnumber)
-test_list = []
-test_list = draw_winning_numbers(randomnumber)
-print(test_list)
+    elif prize_count == 5 and bonus_digit in numbers:
+        prize_money = 50000000
 
-a = [14, 3, 4, 5]
-b = [5, 4, 3]
+    elif prize_count == 5:
+        prize_money = 1000000
+    elif prize_count == 4:
+        prize_money = 50000
+    elif prize_count == 3:
+        prize_money = 5000
+    return prize_money
 
-test_checker = count_matching_numbers(a, b)
-print(test_checker)
+
+auto = generate_numbers()
+print(auto)
+
+chucheom = draw_winning_numbers()
+print(chucheom)
+dangcheomgeum = check(auto, chucheom)
+
+print(dangcheomgeum)
+
