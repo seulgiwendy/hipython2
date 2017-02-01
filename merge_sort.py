@@ -28,9 +28,11 @@ def merge_sort(my_list):
 
     # Recursive Case: my_list를 잘게 쪼개는 과정을 재귀적으로 반복하고, merge 함수를 사용하여 합쳐준다.
     # 코드를 작성하세요.
+    return merge(merge_sort(left),merge_sort(right))
 
 
-haerin = [1, 2, 3]
-subin = [4, 5, 6]
 
-print(merge(haerin, subin))
+subin = [1, 3, 4, 5, 6, 10, 9, 13, 17, 19, 21, 20, 253, 251]
+haerin = [2048, 1024, 3072, 5120, 4096]
+print(merge_sort(subin))
+print(merge_sort(haerin))
